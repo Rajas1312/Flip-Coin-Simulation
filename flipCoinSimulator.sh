@@ -3,6 +3,8 @@
 echo " Flip Coin Simulation problem"
 a=0
 b=0
+x=0
+y=0
 for i in {1..42}
 do
 	if [ $((RANDOM%2)) -eq 0 ]
@@ -33,4 +35,24 @@ echo " $b times tails won"
 				if [ $a -eq $b ]
 				then
 					echo "its a tie"
-			fi
+				for (( ; ; ))
+				do
+					if [ $((RANDOM%2)) -eq 0 ]
+					then
+						if [ $((x-y)) -eq 2 ]
+						then
+							echo "Heads wins"
+							break
+						fi
+						((x++))
+
+					else
+						if [ $((y-x)) -eq 2 ]
+						then
+							echo "Tails wins"
+						break
+						fi
+						((y++))
+					fi
+				done
+				fi
